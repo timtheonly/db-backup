@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity name="drive backup.exe" version="1.0.0.0" publicKeyToken="0ed66765fe47ef0f" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="drive backup" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="drive backup.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="drive backup.exe" size="11776">
+      <assemblyIdentity name="drive backup" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>JGejW4vYqlHxLP8sBHVTeoYVrSg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DropNet.dll" size="32768">
+      <assemblyIdentity name="DropNet" version="1.8.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ncN2/1C/kniWjo7J5D2HCg0rSIs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Ionic.Zip.dll" size="462336">
+      <assemblyIdentity name="Ionic.Zip" version="1.9.1.8" publicKeyToken="EDBE51AD942A3F5C" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ihFAzrw59plO736N5GJ/t7cqLdk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RestSharp.dll" size="157184">
+      <assemblyIdentity name="RestSharp" version="102.7.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>N1mrT+goemxMW7zkQEW8kcz1NKM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=THINKPAD\daniel" issuerKeyHash="d0e4970aabc127435478fe6f996c76ad5d383cac" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>t6VN67tMhR6V+bDyS3ueZ9tFvXs=</DigestValue></Reference></SignedInfo><SignatureValue>dVfyunO/sE7+DM8arHw5PvDzv4YEuyhbIbM3uZwmPc0PS8E7EdJhbpkPoXdyTQhJXr1RuulS692evmbBaRl4XpQWE9RZEluhNJ2Yzv4NzWrZ3bnXJk9y70WwkK154y28Ub8B0u2Hc9iB58tE8RatVgp9d/sn9bUzLn0S5xsHRlU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>v7zBmLqb7lI6VmtrEqcHeK/zEGbTCDaWk8YYyA/Y4vmqM8yBeb8SErnW0sUR9Ebs1r6jWkhlJf3PHef6ivmJJJMpOo5dF49NBpb+q1usW3PYjvn26SHfyfBhKHE5JA9XIiOq1NQNwOs8Jl9m2ybUn5Mmsw4a1KtV9JF4JODiFWs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="7bbd45db679e7b4bf2b0f9951e854cbbeb4da5b7" Description="" Url=""><as:assemblyIdentity name="drive backup.exe" version="1.0.0.0" publicKeyToken="0ed66765fe47ef0f" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=THINKPAD\daniel</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>XSEFjO7piDOrI4vL/6SwJ7sp4Vc=</DigestValue></Reference></SignedInfo><SignatureValue>R9evpeurMQmwbAGIRh5bMWtcal3WY2h9OpW53/shuqyVqmzAXpkbw8e6LXV0nM4XyTluZ/WTsTPO7OUEBMhYdaAsgcD/9hu107TKMpnDFGDrKhW7tP7NN68nVxPgur4NeLUcT1tbFZtdzusPhv4+nMXQ0hgm8M5+ywa4Vx1P4gQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>v7zBmLqb7lI6VmtrEqcHeK/zEGbTCDaWk8YYyA/Y4vmqM8yBeb8SErnW0sUR9Ebs1r6jWkhlJf3PHef6ivmJJJMpOo5dF49NBpb+q1usW3PYjvn26SHfyfBhKHE5JA9XIiOq1NQNwOs8Jl9m2ybUn5Mmsw4a1KtV9JF4JODiFWs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQMcZ2GUeqkZlGhAGpBsItTDANBgkqhkiG9w0BAQUFADApMScwJQYDVQQDHh4AVABIAEkATgBLAFAAQQBEAFwAZABhAG4AaQBlAGwwHhcNMTIxMDA4MTMyNjU2WhcNMTMxMDA4MTkyNjU2WjApMScwJQYDVQQDHh4AVABIAEkATgBLAFAAQQBEAFwAZABhAG4AaQBlAGwwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAL+8wZi6m+5SOlZraxKnB3iv8xBm0wg2lpPGGMgP2OL5qjPMgXm/EhK51tLFEfRG7Na+o1pIZSX9zx3n+or5iSSTKTqOXRePTQaW/qtbrFtz2I759ukh38nwYShxOSQPVyIjqtTUDcDrPCZfZtsm1J+TJrMOGtSrVfSReCTg4hVrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEADx8FSzvRc9DTRfDWCNBumWnAdQYAEVkPIOlgwC0nrfKS2v+j1VdqhQqTRgtVgnXldthJ1zSZwDrmq4+/V4y/XNc5/i7bZh1gQHdKcFJqDswrmtzO1S+KHj77ZN/3mfgp+1GqMVgMozCT+iXFqe2yVuH3IcGSRo7SEZjRElv1kVA=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
