@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Ionic.Zip;
 using DropNet;
-//using IniParser;
+using IniParser;
 
 namespace WindowsFormsApplication1
 {
@@ -19,20 +19,25 @@ namespace WindowsFormsApplication1
         private string bkuploc, zipfileName;
         private bool newUser;
         private DropNetClient dbclient;
+        IniData iniFile;
+        IniParser.FileIniDataParser parcer;
         public Form1()
         {
             InitializeComponent();
+            //set up ini file parcer
+            parcer = new FileIniDataParser();
+            iniFile = parcer.LoadFile("config.ini");
             //set default backup location
-            bkuploc = "U:\\";
+            bkuploc = iniFile["appdata"]["defaultBackuploc"];
             output = "Click backup to begin.....";
             outputlabel.Text = output;
-            dbclient = new DropNetClient("************", "**********");
+            dbclient = new DropNetClient("**********", "***********");
             newUser = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            output += "\nBackup initiated (This may take a while).... \n backing up:"+ bkuploc +" ... \n";
+            output += "\nBackup initiated (This may take a while).... \nbacking up:"+ bkuploc +" ... \n";
             bkpbtn.Enabled = false;
             choosedirbtn.Enabled = false;
             outputlabel.Text = output;
@@ -78,12 +83,10 @@ namespace WindowsFormsApplication1
             string user_token ="", user_secret="";
             /*if user has run a backup before read the access token from config.ini
              otherwise get the access token and then save it to config.ini*/
-            if (File.Exists("config.ini"))
+            if (iniFile["userdata"]["runBefore"] == "true")
             {
-                StreamReader str = new StreamReader("config.ini");
-                user_token = str.ReadLine();
-                user_secret = str.ReadLine();
-                str.Close();
+                user_token = iniFile["userdata"]["accessToken"];
+                user_secret = iniFile["userdata"]["tokenSecret"];
             }
             else
             {
@@ -94,13 +97,18 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("click ok when you have authenicated with dropbox","Authtenticate with dropbox");
 
                 var accesstoken = dbclient.GetAccessToken();
-                //save the access token for future use
-                StreamWriter stw = new StreamWriter("config.ini");
-                stw.WriteLine(accesstoken.Token);
-                stw.WriteLine(accesstoken.Secret);
-                stw.Close();
+                iniFile["userdata"]["accessToken"]= accesstoken.Token.ToString();
+                iniFile["userdata"]["tokensSecret"] = accesstoken.Secret.ToString();
+                iniFile["userdata"]["runBefore"] = "true";
             }
-            dbclient.UserLogin = new DropNet.Models.UserLogin {Token = user_token, Secret = user_secret};
+            try
+            {
+                dbclient.UserLogin = new DropNet.Models.UserLogin { Token = user_token, Secret = user_secret };
+            }
+            catch (DropNet.Exceptions.DropboxException dbexcept)
+            {
+                output += "Error authenticating with dropbox \n" + dbexcept.Message;
+            }
         }
 
         private void sendBackuptodb()
@@ -115,9 +123,9 @@ namespace WindowsFormsApplication1
                 byte[] bytes = File.ReadAllBytes(zipfileName);
                 var uploaded = dbclient.UploadFilePUT("/backups/" + zipfileName, zipfileName, bytes);
             }
-            catch (DropNet.Exceptions.DropboxException dbexcept1)
+            catch (DropNet.Exceptions.DropboxException dbexcept)
             {
-                output += "Error sending backup to dropbox:\n" + dbexcept1.Message;
+                output += "Error sending backup to dropbox:\n" + dbexcept.Message;
                 outputlabel.Text = output;
             }
         }

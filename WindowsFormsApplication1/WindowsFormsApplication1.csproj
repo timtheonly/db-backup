@@ -65,6 +65,9 @@
     <Reference Include="DropNet">
       <HintPath>..\packages\DropNet.1.9.3\lib\net35\DropNet.dll</HintPath>
     </Reference>
+    <Reference Include="INIFileParser">
+      <HintPath>..\..\..\..\..\Downloads\INIFileParser_1.7.1\INIFileParser.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\..\..\..\..\Downloads\DotNetZipLib-DevKit-v1.9\zip-v1.9\Release\Ionic.Zip.dll</HintPath>
     </Reference>
