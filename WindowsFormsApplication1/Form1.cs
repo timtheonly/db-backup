@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Ionic.Zip;
 using DropNet;
 using IniParser;
+//using System.Runtime.InteropServices;
 
 namespace WindowsFormsApplication1
 {
@@ -21,9 +22,13 @@ namespace WindowsFormsApplication1
         private DropNetClient dbclient;
         IniData iniFile;
         IniParser.FileIniDataParser parcer;
+        //[DllImport("Kernel32.dll")]
+        static extern Boolean AllocConsole();
         public Form1()
         {
             InitializeComponent();
+            //if (!AllocConsole())
+               // MessageBox.Show("Failed");
             //set up ini file parcer
             parcer = new FileIniDataParser();
             iniFile = parcer.LoadFile("config.ini");
@@ -31,7 +36,7 @@ namespace WindowsFormsApplication1
             bkuploc = iniFile["appdata"]["defaultBackuploc"];
             output = "Click backup to begin.....";
             outputlabel.Text = output;
-            dbclient = new DropNetClient("**********", "***********");
+            dbclient = new DropNetClient("ogpmt0vuae0mkr4", "8s77mh9omajr7x9");
             newUser = false;
         }
 
@@ -85,8 +90,9 @@ namespace WindowsFormsApplication1
              otherwise get the access token and then save it to config.ini*/
             if (iniFile["userdata"]["runBefore"] == "true")
             {
-                user_token = iniFile["userdata"]["accessToken"];
+                user_token = iniFile["userdata"]["accesstoken"];
                 user_secret = iniFile["userdata"]["tokenSecret"];
+                //Console.WriteLine(user_token +"  "+user_secret);
             }
             else
             {
